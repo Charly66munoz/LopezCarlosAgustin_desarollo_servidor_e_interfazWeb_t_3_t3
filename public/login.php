@@ -1,12 +1,10 @@
 <?php
 require_once '../src/Auth.php';
 
-
 if (isset($_SESSION['name'])){
     header("Location: https://lopezcarlosagustin-desarollo-servidor-t-3-t3.ddev.site/index.php");
         exit;
 }
-
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
     $userName = strtolower(trim($_POST['userName'])) ?? '';
     $ps = $_POST['ps'] ?? '';
@@ -23,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $alert = "Contraseña o usuario incorrecto/a, intentelo nuevamente";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,36 +34,29 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         <div class="container mt-5">
             <?php if (isset($alert)) : ?>
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
-                    <div>
-                        <?php echo $alert ?>
-                    </div>
-                    </div>
-                    
+                        <div>
+                            <?php echo $alert ?>
+                        </div>
+                    </div>       
             <?php endif ; ?>
-        <div class="">
-            <form  method="post" autocomplete="off" novalidate>
-                <div class="mb-3">
-                <label for="exampleInputUser" class="form-label">Nombre</label>
-                <input type="text" name="userName" class="form-control" id="exampleInputUser"  aria-describedby="emailHelp">
-                <div id="userHelp" class="form-text" ><p class="text-light">We'll never share your name with anyone else.</p></div>
-                
+            <div class="container d-flex w-50 justify-content-center bg-light bg-opacity-50 rounded py-3">
+                    <form  method="post" autocomplete="off" novalidate>
+                        <div class="mb-3">
+                        <label for="exampleInputUser" class="form-label">Nombre</label>
+                        <input type="text" name="userName" class="form-control" id="exampleInputUser"  aria-describedby="emailHelp">            
+                    </div>
+                    <div class="mb-3 pb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" name="ps" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button class="btn btn-outline-primary w-100 ">Submit</button>
+                </form>
+            
+                <?php if(isset($txt)) {
+                    echo $txt;
+                } 
+                ?>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="ps" class="form-control" id="exampleInputPassword1">
-            </div>
-            <button class="btn btn-primary">Submit</button>
-        </form>
-        
-            <?php if(isset($txt)) {
-                echo $txt;
-            } 
-            ?>
-        
-        
         </div>
-        </div>
-
-
 </body>
 </html>

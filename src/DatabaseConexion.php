@@ -4,21 +4,25 @@ class DatabaseConexion{
 
     public function __construct()
     {
-        $host = "localhost";
+        $host = "db";
         $port = "3306";
         $dbname = "db";
         $user = "root";
-        $password = "db";
+        $password = "root";
 
-        $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
 
         try {
-            $this -> conexion= new PDO($dsn, $user, $password);
-            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $this->conexion->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        
-        
+            $this->conexion = new PDO(
+                $dsn, 
+                $user, 
+                $password,
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                ]
+            );
+            echo "Conexion exitosa";
         } catch (PDOException $e) {
             die("Conexión fallida: " . $e->getMessage());
         }
