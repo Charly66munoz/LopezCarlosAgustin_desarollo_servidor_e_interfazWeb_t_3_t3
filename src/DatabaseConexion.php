@@ -22,7 +22,6 @@ class DatabaseConexion{
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                 ]
             );
-            echo "Conexion exitosa";
         } catch (PDOException $e) {
             die("Conexión fallida: " . $e->getMessage());
         }

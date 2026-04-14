@@ -30,50 +30,80 @@ if (empty($events)){
     <meta charset="utf-8">
     <title>Homepage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
 </head>
-<body class="bg-dark m-0 p-0">
-  <nav class=" bg-danger opacity-75 navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid d-flex justify-content-end gap-2">
-      <h1>Gestor de eventos </h1>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item dropdown  ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
+<body class="m-0 p-0 text-light h-100" style="background-color: #1a1a19">
+    <div class="flex row h-100">
+      <div class="col-2 vh-100 " style="background-color: #31312f ;">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+          <div class="flex-column d-flex h-100 w-100">
+            <h5>Gestor de eventos </h5>
+              <ul class="navbar-nav flex-column flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#">Pricing</a>
+                </li>
+                <!-- <li class="nav-item dropdown  ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown link
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            <a class="btn btn-outline-danger " href="logout.php">salir</a>
+          </div>
+        </nav>
       </div>
-      <a class="btn btn-outline-danger" href="logout.php">salir</a>
-    </div>
-  </nav>
-    <div>
-      <?php if (isset($error)) :?>
-        <div class="alert alert-success" role="alert">
-          <?php echo $error ;?>
+      <div class="col-10">
+        <div class="d-flex justify-content-end ">
+          <button class="btn btn-outline-danger ">Modificar</button> 
         </div>
-      <?php else : ?>
-        <?php foreach($events as  $event) : ?>
-          <?php echo "<p>". $event['nombre'] ."</p>" ?>
-        <?php endforeach ; ?>
-      <?php endif ;?>
+          <?php if (isset($error)) :?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $error ;?>
+          </div>
+        <?php else : ?>
+          <div class="overflow-auto " style="max-height: 600px;">
+
+            <table class="table table-dark table-striped">
+              <thead>
+              <tr>
+                <th class="text-white" scope="col"></th>
+                <th class="text-white" scope="col">Id</th>
+                <th class="text-white" scope="col">Nombre</th>
+                <th class="text-white" scope="col">Fecha</th>
+                <th class="text-white" scope="col">Descripcion</th>
+                <th class="text-white" scope="col">Lugar</th>
+                <th class="text-white" scope="col">Capacidad</th>
+                <th class="text-white" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                <?php foreach($events as  $event) : ?>
+                  <tr>
+                    <th scope="row"></th>
+                    <td class="text-white"><?php echo $event['id'] ?></td>
+                    <td class="text-white"><?php echo $event['nombre'] ?></td>
+                    <td class="text-white"><?php echo $event['fecha'] ?></td>
+                    <td class="text-white"><?php echo $event['descripcion'] ?></td>
+                    <td class="text-white"><?php echo $event['lugar'] ?></td>
+                    <td class="text-white"><?php echo $event['capacidad'] ?></td>
+                    <td class="text-white"><button class="btn btn-outline-danger">Modificar</button> </td>
+                  </tr>
+                  <?php endforeach ; ?>
+                  <?php endif ;?>
+            </tbody>
+          </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
