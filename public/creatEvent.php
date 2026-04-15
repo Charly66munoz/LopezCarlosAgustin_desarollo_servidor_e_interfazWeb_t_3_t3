@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $sentencia = $conexion->prepare($sql);
         $resultado = $sentencia-> execute(['nombre'=> $name ,'fecha'=>$date ,'lugar'=>$place ,'descripcion' => $description, 'capacidad' => $capacity]);
     
-        die($resultado);
+
         }catch (PDOException $e){
         $alertError = "Ha habido un error al guardar el evento. Error: ". $e->getMessage();
     }
