@@ -5,6 +5,10 @@ td{
     color: white;
 }
 
-.hide{
-    display: none;
+
+.formControl{
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
 }

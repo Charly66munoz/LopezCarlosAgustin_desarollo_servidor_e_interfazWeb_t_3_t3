@@ -12,7 +12,7 @@ if (!isset($_SESSION['name'])){
 }
 
 $sql = "
-        select * from eventos_tech.eventos; 
+        select * from eventos_tech.eventos ORDER BY fecha; 
 ";
 
 $sentencia = $conexion->prepare($sql);
@@ -94,22 +94,22 @@ if (empty($events)){
                   <tr>
                     <th scope="row"></th>
                     <td class="text-white "><?php echo $event['id'] ?></td>
-                    <td class="text-white d-none "><?php echo $event['id'] ?></td>
+                    <td class="text-white opacity-100 d-none "><?php echo $event['id'] ?></td>
                     
                     <td class="text-white"><?php echo $event['nombre'] ?></td>
-                    <td class="text-white d-none"><input type="text" value="<?php echo $event['nombre'] ?>"></td>
+                    <td class="text-white d-none"><input class="formControl" type="text" value="<?php echo $event['nombre'] ?>"></td>
 
                     <td class="text-white"><?php echo $event['fecha'] ?></td>
-                    <td class="text-white d-none"><input type="text" value="<?php echo $event['fecha'] ?>"></td>
+                    <td class="text-white d-none"><input class="formControl" type="date" value="<?php echo $event['fecha'] ?>"></td>
 
                     <td class="text-white view-mode"><?php echo $event['descripcion'] ?></td>
-                    <td class="text-white d-none"><input type="text" value="<?php echo $event['descripcion'] ?>"></td>
+                    <td class="text-white d-none"><input class="formControl" type="text" value="<?php echo $event['descripcion'] ?>"></td>
 
                     <td class="text-white view-mode"><?php echo $event['lugar'] ?></td>
-                    <td class="text-white d-none"><input type="text" value="<?php echo $event['lugar'] ?>"></td>
+                    <td class="text-white d-none"><input class="formControl" type="text" value="<?php echo $event['lugar'] ?>"></td>
 
                     <td class="text-white view-mode"><?php echo $event['capacidad'] ?></td>
-                    <td class="text-white d-none"><input type="text" value="<?php echo $event['capacidad'] ?>"></td>
+                    <td class="text-white d-none"><input class="formControl" type="number" value="<?php echo $event['capacidad'] ?>"></td>
 
                     <div class="edit">
                       <td class="text-white"><button class="btn btn-outline-danger editButton">Modificar</button> </td>

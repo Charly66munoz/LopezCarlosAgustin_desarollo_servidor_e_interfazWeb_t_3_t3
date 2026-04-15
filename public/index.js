@@ -6,6 +6,7 @@ editButtons.forEach(editButton => {
     editButton.addEventListener("click", (event) => {
         const button = event.target;
         const fila = button.closest("tr");
+        //El dataset lo uso para setear la edicion del boton, 
         const isEditing = fila.dataset.editing === "true";
 
         const allTd = fila.querySelectorAll("td");
