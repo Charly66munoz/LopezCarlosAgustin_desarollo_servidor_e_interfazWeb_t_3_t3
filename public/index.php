@@ -34,10 +34,11 @@ if (empty($events)){
 </head>
 <body class="m-0 p-0 text-light h-100" style="background-color: #1a1a19">
     <div class="flex row h-100">
-      <div class="col-2 vh-100 " style="background-color: #31312f ;">
-        <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="col-2 vh-100  " style="background-color: #31312f ;">
+        <nav class="navbar navbar-expand-lg navbar-light px-2 ">
           <div class="flex-column d-flex h-100 w-100">
             <h5>Gestor de eventos </h5>
+            <hr>
               <ul class="navbar-nav flex-column flex-grow-1">
                 <li class="nav-item">
                   <a class="nav-link " aria-current="page" href="#">Home</a>
@@ -75,36 +76,53 @@ if (empty($events)){
           <div class="overflow-auto " style="max-height: 600px;">
 
             <table class="table table-dark table-striped">
+            
               <thead>
-              <tr>
-                <th class="text-white" scope="col"></th>
-                <th class="text-white" scope="col">Id</th>
-                <th class="text-white" scope="col">Nombre</th>
-                <th class="text-white" scope="col">Fecha</th>
-                <th class="text-white" scope="col">Descripcion</th>
-                <th class="text-white" scope="col">Lugar</th>
-                <th class="text-white" scope="col">Capacidad</th>
-                <th class="text-white" scope="col"></th>
+                <tr>
+                  <th class="text-white" scope="col"></th>
+                  <th class="text-white" scope="col">Id</th>
+                  <th class="text-white" scope="col">Nombre</th>
+                  <th class="text-white" scope="col">Fecha</th>
+                  <th class="text-white" scope="col">Descripcion</th>
+                  <th class="text-white" scope="col">Lugar</th>
+                  <th class="text-white" scope="col">Capacidad</th>
+                  <th class="text-white" scope="col"></th>
               </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
                 <?php foreach($events as  $event) : ?>
                   <tr>
                     <th scope="row"></th>
-                    <td class="text-white"><?php echo $event['id'] ?></td>
+                    <td class="text-white "><?php echo $event['id'] ?></td>
+                    <td class="text-white d-none "><?php echo $event['id'] ?></td>
+                    
                     <td class="text-white"><?php echo $event['nombre'] ?></td>
+                    <td class="text-white d-none"><input type="text" value="<?php echo $event['nombre'] ?>"></td>
+
                     <td class="text-white"><?php echo $event['fecha'] ?></td>
-                    <td class="text-white"><?php echo $event['descripcion'] ?></td>
-                    <td class="text-white"><?php echo $event['lugar'] ?></td>
-                    <td class="text-white"><?php echo $event['capacidad'] ?></td>
-                    <td class="text-white"><button class="btn btn-outline-danger">Modificar</button> </td>
+                    <td class="text-white d-none"><input type="text" value="<?php echo $event['fecha'] ?>"></td>
+
+                    <td class="text-white view-mode"><?php echo $event['descripcion'] ?></td>
+                    <td class="text-white d-none"><input type="text" value="<?php echo $event['descripcion'] ?>"></td>
+
+                    <td class="text-white view-mode"><?php echo $event['lugar'] ?></td>
+                    <td class="text-white d-none"><input type="text" value="<?php echo $event['lugar'] ?>"></td>
+
+                    <td class="text-white view-mode"><?php echo $event['capacidad'] ?></td>
+                    <td class="text-white d-none"><input type="text" value="<?php echo $event['capacidad'] ?>"></td>
+
+                    <div class="edit">
+                      <td class="text-white"><button class="btn btn-outline-danger editButton">Modificar</button> </td>
+                    </div>
                   </tr>
-                  <?php endforeach ; ?>
-                  <?php endif ;?>
-            </tbody>
+                <?php endforeach ; ?>
+                <?php endif ; ?>
+              </tbody>
+            </table>
           </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

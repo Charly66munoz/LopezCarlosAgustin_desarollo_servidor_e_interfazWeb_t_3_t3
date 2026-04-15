@@ -4,3 +4,7 @@
 td{
     color: white;
 }
+
+.hide{
+    display: none;
+}
