@@ -32,14 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
     </head>
     <body class="bg-dark text-light ">
         <div class="container mt-5">
-            <?php if (isset($alert)) : ?>
-                    <div class="alert alert-danger d-flex align-items-center" role="alert">
-                        <div>
-                            <?php echo $alert ?>
-                        </div>
-                    </div>       
-            <?php endif ; ?>
             <div class="container d-flex w-50 justify-content-center bg-light bg-opacity-50 rounded py-3">
+                <?php if (isset($alert)) : ?>
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <div>
+                                <?php echo $alert ?>
+                            </div>
+                        </div>       
+                <?php endif ; ?>
                     <form  method="post" autocomplete="off" novalidate>
                         <div class="mb-3">
                         <label for="exampleInputUser" class="form-label">Nombre</label>

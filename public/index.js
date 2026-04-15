@@ -21,11 +21,11 @@ editButtons.forEach(editButton => {
 
         if (!isEditing) {
             button.textContent = "Cancelar";
-            button.classList.replace("btn-outline-danger", "btn-outline-secondary");
+            button.classList.replace("btn-outline-warning", "btn-outline-secondary");
             fila.dataset.editing = "true";
         } else {
             button.textContent = "Modificar";
-            button.classList.replace("btn-outline-secondary", "btn-outline-danger");
+            button.classList.replace("btn-outline-secondary", "btn-outline-warning");
             fila.dataset.editing = "false";
         }
     });
