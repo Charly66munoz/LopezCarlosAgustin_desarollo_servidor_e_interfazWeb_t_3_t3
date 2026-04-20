@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.bg-prop{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.nav-link{
+    color: white;
+}
+
+.header-title {
+    border-radius: 5px;
+    background-color: rgba(68, 61, 61, 0.13);
+ color: #ffffff;
+}
+
+td{
+    color: white;
+}
+
+
+.formControl{
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+}
+
+.btnSize{
+    font-size: 10px;
+}
+
+.table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 991.98px) {
+            .aside-sticky {
+                position: sticky;
+                bottom: 0;
+                z-index: 100;
+                width: 100%;
+            }
+            .aside-sticky .flex-column {
+                flex-direction: row !important;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .aside-sticky h5, .aside-sticky hr {
+                display: none;
+            }
+        }

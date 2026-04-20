@@ -1,10 +1,13 @@
 <?php
 require_once '../src/Auth.php';
+require_once "../src/RedirectAdminPage.php";
 
-if (isset($_SESSION['name'])){
-    header("Location: https://lopezcarlosagustin-desarollo-servidor-t-3-t3.ddev.site/index.php");
-        exit;
+RedirectAdminPage::redirectHome();
+
+if (isset($_SESSION['error'])){
+    $alert = $_SESSION['error'];
 }
+
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
     $userName = strtolower(trim($_POST['userName'])) ?? '';
     $ps = $_POST['ps'] ?? '';
@@ -31,16 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body class="bg-dark text-light ">
-        <div class="container mt-5">
-            <div class="container d-flex w-50 justify-content-center bg-light bg-opacity-50 rounded py-3">
-                <?php if (isset($alert)) : ?>
-                        <div class="alert alert-danger d-flex align-items-center" role="alert">
-                            <div>
-                                <?php echo $alert ?>
-                            </div>
-                        </div>       
-                <?php endif ; ?>
-                    <form  method="post" autocomplete="off" novalidate>
+        <div class="container mt-5 d-flex">
+            <div class="container w-50 m-auto bg-light bg-opacity-50 rounded py-3">
+                <form  method="post" autocomplete="off" novalidate>
+                        <?php if (isset($alert)) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                                <div><?php echo $alert ?></div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>       
+                        <?php endif ; ?>
                         <div class="mb-3">
                         <label for="exampleInputUser" class="form-label">Nombre</label>
                         <input type="text" name="userName" class="form-control" id="exampleInputUser"  aria-describedby="emailHelp">            
