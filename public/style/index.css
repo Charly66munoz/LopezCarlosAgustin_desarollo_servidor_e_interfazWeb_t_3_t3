@@ -18,7 +18,7 @@ html, body {
 .header-title {
     border-radius: 5px;
     background-color: rgba(68, 61, 61, 0.13);
- color: #ffffff;
+ 
 }
 
 td{
@@ -44,9 +44,9 @@ td{
 
         @media (max-width: 991.98px) {
             .aside-sticky {
-                position: sticky;
+                position: fixed;
                 bottom: 0;
-                z-index: 100;
+                z-index: 1000;
                 width: 100%;
             }
             .aside-sticky .flex-column {

@@ -1,3 +1,18 @@
+Para crear la bd datos se debera insertar en MySql la siguiente query
+
+CREATE DATABASE eventos_tech;
+USE eventos_tech;
+CREATE TABLE eventos (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nombre VARCHAR(100) NOT NULL,
+ fecha DATE NOT NULL,
+ descripcion TEXT,
+ lugar VARCHAR(100),
+ capacidad INT
+);
+
+Luego para poder instertar datos de prueba puede incresar la siguiente query (ya debe estar la bd creada)
+
 INSERT INTO eventos (nombre, fecha, descripcion, lugar, capacidad) 
 VALUES 
 ('Conferencia de Tecnología 2026', NOW(), 'Charla sobre tendencias de IA y desarrollo web, 2 horas', 'Auditorio Principal', 500),

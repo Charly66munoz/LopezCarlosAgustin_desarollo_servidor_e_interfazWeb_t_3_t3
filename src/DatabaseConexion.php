@@ -4,13 +4,12 @@ class DatabaseConexion{
 
     public function __construct()
     {
-        $host = "db";
-        $port = "3306";
-        $dbname = "db";
+        $host = "localhost";
+        $dbname = "eventos_tech";
         $user = "root";
-        $password = "root";
+        $password = "";
 
-        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
         try {
             $this->conexion = new PDO(

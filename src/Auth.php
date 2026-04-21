@@ -1,10 +1,10 @@
 <?php 
-
 class Auth{
-    private static $ruta = "../usuarios.txt";
-
+    private static $ruta = __DIR__ . "/../usuarios.txt";
+    
     public static function verificarUser(string $userName, string $ps): bool
     {
+        
         if (!file_exists(self::$ruta)){
             try{
                 $file = fopen( self::$ruta, "w") or die("Error, no se ha creado el archivo"); //si no existe se crea
