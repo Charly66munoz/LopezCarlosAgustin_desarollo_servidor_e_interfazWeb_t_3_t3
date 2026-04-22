@@ -29,23 +29,32 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="./img/iconlogo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/index.css">
+
 </head>
 
 <body style="background-image: url('img/TechcTivityBaground.png')" class="bg-prop text-white">
     <div class="container mt-5 d-flex">
-        <div class="container w-50 m-auto bg-dark bg-opacity-50 rounded py-3">
-            <form method="post" autocomplete="off" novalidate>
+        <div class="container w-25 m-auto rounded py-3" style="background-color: #31312fe8;">
+            <form method="post" class="w-75 m-auto" autocomplete="off" novalidate>
+
                 <?php if (isset($alert)) : ?>
                     <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
                         <div><?php echo $alert ?></div>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
-                <div class="mb-3">
+                <div class="m-auto mb-lg-4 d-flex justify-content-center">
+
+                    <img src="./img/logo.png" width="80px" alt="logo_techctivity" style="border-radius: 50%;">
+                </div>
+                <h5>Inicio de sesion</h5>
+                <div class="my-3">
                     <label for="exampleInputUser" class="form-label">Nombre</label>
                     <input type="text" name="userName" class="form-control" id="exampleInputUser" aria-describedby="emailHelp">
                 </div>

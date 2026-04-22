@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         header("Location: /EventosTech-CarlosAgustinLopez/public/creatEvent.php?alert=Evento creado correctamente");
         exit;
-
     } catch (PDOException $e) {
         $alertError = "Ha habido un error al guardar el evento. Error: " . $e->getMessage();
     }
@@ -35,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 
 <head lang="es">
+    <link rel="icon" type="image/png" href="./img/iconlogo.png">
     <meta charset="utf-8">
     <title>CreateEvent</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,24 +62,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="d-flex flex-column flex-lg-row flex-grow-1 overflow-auto">
             <div class="order-last order-lg-first aside-sticky col-12 col-lg-2
-            p-3 py-lg-5 rounded-top rounded-lg-start 
+            p-3 py-lg-3 rounded-top rounded-lg-start 
             text-light flex-shrink-0 my-lg-2"
-            style="background-color: #31312fb9;">
-            <nav class="navbar navbar-dark px-2">
-                <div class="flex-column d-flex w-100 justify-content-around">
-                    <h5>TechcTivity</h5>
-                    <hr>
-                    <a class="btn btn-success mt-3" href="/EventosTech-CarlosAgustinLopez/public/home.php">
-                        Inicio
-                    </a>
-                    <a class="btn btn-danger mt-3" href="/EventosTech-CarlosAgustinLopez/public/logout.php">Salir</a>
-                </div>
-            </nav>
-        </div>
-        <div class="order-first order-lg-last col-12 col-lg-10
+                style="background-color: #31312fe8;">
+                <nav class="navbar navbar-dark px-2">
+                    <div class="flex-column d-flex w-100 justify-content-around">
+                        <div class="m-auto mb-lg-2">
+                            <img src="./img/logo.png" width="90px" alt="logo_techctivity" style="border-radius: 50%;">
+                        </div>
+                        <hr>
+                        <a class="btn btn-success mt-3" href="/EventosTech-CarlosAgustinLopez/public/home.php">
+                            Inicio
+                        </a>
+                        <a class="btn btn-danger mt-3" href="/EventosTech-CarlosAgustinLopez/public/logout.php">Salir</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="order-first order-lg-last col-12 col-lg-10
         d-flex justify-content-center py-2">
-        <div class="col-12 col-sm-10 d-flex justify-content-center align-items-center">
-            <form method="post" class=" px-3 py-4 rounded" style="background-color: #31312f9c ">
+                <div class="col-12 col-sm-10 d-flex justify-content-center align-items-center">
+                    <form method="post" class=" px-3 py-4 rounded text-white" style="background-color: #31312fe8 ">
                         <div class="mb-3">
                             <h4 class="w-75 text-white">Rellene los datos crear el evento</h4>
                         </div>
@@ -106,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <textarea id="description" name="description" rows="3" cols="30">
                                 </textarea>
                         </div>
-                        <button type="submit" class="btn btn-outline-dark w-100">Confirmar</button>
+                        <button type="submit" class="btn btn-primary w-100">Confirmar</button>
                     </form>
                 </div>
             </div>
